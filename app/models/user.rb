@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_secure_password #authenticate method (secure password.rb)
 
   before_save { |user| user.email = email.downcase }
+  # or: before_save { self.email.downcase! }
 
   validates :name, 	presence: true,	length: { maximum: 50 }
 
